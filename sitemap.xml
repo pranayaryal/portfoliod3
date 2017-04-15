@@ -2,11 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://pranayaryal.github.io/2016/07/hello-r-markdown/</loc>
-    <lastmod>2016-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://pranayaryal.github.io/2015/06/welcome-to-tranquilpeak-0.3.0-beta/</loc>
     <lastmod>2015-06-15T00:00:00+00:00</lastmod>
   </url>
@@ -24,6 +19,11 @@
   <url>
     <loc>https://pranayaryal.github.io/2015/03/highlighted-code-showcase/</loc>
     <lastmod>2015-03-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pranayaryal.github.io/2015/01/hello-r-markdown/</loc>
+    <lastmod>2015-01-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
@@ -168,37 +168,37 @@
   
   <url>
     <loc>https://pranayaryal.github.io/tags/plot/</loc>
-    <lastmod>2016-07-23T21:13:14-05:00</lastmod>
+    <lastmod>2015-01-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://pranayaryal.github.io/post/</loc>
-    <lastmod>2016-07-23T21:13:14-05:00</lastmod>
+    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://pranayaryal.github.io/</loc>
-    <lastmod>2016-07-23T21:13:14-05:00</lastmod>
+    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://pranayaryal.github.io/categories/r/</loc>
-    <lastmod>2016-07-23T21:13:14-05:00</lastmod>
+    <lastmod>2015-01-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://pranayaryal.github.io/tags/r-markdown/</loc>
-    <lastmod>2016-07-23T21:13:14-05:00</lastmod>
+    <lastmod>2015-01-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://pranayaryal.github.io/tags/regression/</loc>
-    <lastmod>2016-07-23T21:13:14-05:00</lastmod>
+    <lastmod>2015-01-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   

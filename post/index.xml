@@ -6,21 +6,10 @@
     <description>Recent content in Posts on Pranay Aryal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Jul 2016 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2015 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://pranayaryal.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>https://pranayaryal.github.io/2016/07/hello-r-markdown/</link>
-      <pubDate>Sat, 23 Jul 2016 21:13:14 -0500</pubDate>
-      
-      <guid>https://pranayaryal.github.io/2016/07/hello-r-markdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
-    </item>
     
     <item>
       <title>Welcome to Tranquilpeak 0.3.0-BETA</title>
@@ -59,6 +48,17 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       <guid>https://pranayaryal.github.io/2015/03/highlighted-code-showcase/</guid>
       <description>&lt;p&gt;Tranquilpeak Hugo theme have its own theme to highlight source code. It&amp;rsquo;s based on GitHub theme: simple and elegant. Check out how it sublimate source codes.
 &lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>https://pranayaryal.github.io/2015/01/hello-r-markdown/</link>
+      <pubDate>Fri, 23 Jan 2015 21:13:14 -0500</pubDate>
+      
+      <guid>https://pranayaryal.github.io/2015/01/hello-r-markdown/</guid>
+      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
     </item>
     
     <item>

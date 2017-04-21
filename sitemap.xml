@@ -17,16 +17,6 @@
   </url>
   
   <url>
-    <loc>https://pranayaryal.github.io/2013/10/chinese-test/</loc>
-    <lastmod>2013-10-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://pranayaryal.github.io/2013/01/japanese-test/</loc>
-    <lastmod>2013-01-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://pranayaryal.github.io/archives/</loc>
     <priority>0</priority>
   </url>
@@ -40,12 +30,6 @@
   <url>
     <loc>https://pranayaryal.github.io/categories/</loc>
     <lastmod>2015-06-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://pranayaryal.github.io/tags/chinese/</loc>
-    <lastmod>2013-10-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -98,12 +82,6 @@
   </url>
   
   <url>
-    <loc>https://pranayaryal.github.io/tags/japanese/</loc>
-    <lastmod>2013-01-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://pranayaryal.github.io/post/</loc>
     <lastmod>2015-06-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -123,7 +101,7 @@
   
   <url>
     <loc>https://pranayaryal.github.io/tags/</loc>
-    <lastmod>2013-10-02T00:00:00+00:00</lastmod>
+    <lastmod>2015-05-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

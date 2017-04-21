@@ -21,35 +21,5 @@
  </description>
     </item>
     
-    <item>
-      <title>Editing Vim&#39;s .vimrc file</title>
-      <link>https://pranayaryal.github.io/2015/06/editing-vims-.vimrc-file/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://pranayaryal.github.io/2015/06/editing-vims-.vimrc-file/</guid>
-      <description>&lt;p&gt;I will show you my settings of the .vimrc file
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Editing Vim&#39;s .vimrc file</title>
-      <link>https://pranayaryal.github.io/2015/05/editing-vims-.vimrc-file/</link>
-      <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://pranayaryal.github.io/2015/05/editing-vims-.vimrc-file/</guid>
-      <description>&lt;p&gt;I will share my .vimrc file here with you
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>highlighted code showcase</title>
-      <link>https://pranayaryal.github.io/2015/03/highlighted-code-showcase/</link>
-      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://pranayaryal.github.io/2015/03/highlighted-code-showcase/</guid>
-      <description>&lt;p&gt;Tranquilpeak Hugo theme have its own theme to highlight source code. It&amp;rsquo;s based on GitHub theme: simple and elegant. Check out how it sublimate source codes.
-&lt;/p&gt;</description>
-    </item>
-    
   </channel>
 </rss>

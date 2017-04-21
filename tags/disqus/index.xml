@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Disqus on Pranay Aryal</title>
-    <link>/tags/disqus/</link>
+    <link>https://pranayaryal.github.io/tags/disqus/</link>
     <description>Recent content in Disqus on Pranay Aryal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 15 Jun 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/disqus/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pranayaryal.github.io/tags/disqus/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Editing Vim&#39;s .vimrc file</title>
-      <link>/2015/06/editing-vims-.vimrc-file/</link>
+      <link>https://pranayaryal.github.io/2015/06/editing-vims-.vimrc-file/</link>
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>/2015/06/editing-vims-.vimrc-file/</guid>
+      <guid>https://pranayaryal.github.io/2015/06/editing-vims-.vimrc-file/</guid>
       <description>&lt;p&gt;I will show you my settings of the .vimrc file
 &lt;/p&gt;</description>
     </item>

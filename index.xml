@@ -17,7 +17,8 @@
       <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>/2017/04/analyzing-inpatient-data-from-the-hospital-charge-data-set/</guid>
-      <description>Let’s examine the Hospital Charge Dataset from data.gov The dataset has the following columns:
+      <description>Let’s examine the Hospital Charge Dataset from data.gov I wanted to analyse this dataset because I wanted to know the different charges among different providers
+The dataset has the following columns:
  DRG Definition (diagnosis)
  Provider Id
  Provider Name
@@ -27,8 +28,7 @@
  Provider Zip Code
  Hospital Referral Region Description Total Discharges
  Average Covered Charges
- Average Total Payments
- Average Medicare Payments  The Average Covered Charges differs with differing providers. This will be our column of interest.</description>
+ Average Total Payments</description>
     </item>
     
     <item>

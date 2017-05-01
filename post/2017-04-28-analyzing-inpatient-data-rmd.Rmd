@@ -9,6 +9,7 @@ draft: yes
 ---
 
 ## Let's examine the Hospital Charge Dataset from data.gov
+I wanted to analyse this dataset because I wanted to know the different charges among different providers
 
 The dataset has the following columns: 
 
@@ -25,7 +26,11 @@ The dataset has the following columns:
  - Average Total Payments               
  - Average Medicare Payments  
  
- The Average Covered Charges differs with differing providers. This will be our column of interest. Let us take a look at its histogram
+ The Average Covered Charges differs with differing providers. This will be our column of interest. Let us take a look at its histogram after converting the column to a float.
+
+
+
+![Histogram of the Average Charge](charge_hist.png)
 
 
 

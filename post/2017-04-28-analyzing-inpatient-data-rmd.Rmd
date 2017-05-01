@@ -1,0 +1,17 @@
+---
+title: Analyzing Inpatient Data From the Hospital Charge Data Set
+author: Pranay Aryal
+date: '2017-04-28'
+slug: ''
+categories: []
+tags: []
+draft: yes
+---
+
+## Let's examine the Hospital Charge Dataset from data.gov
+
+
+
+
+
+

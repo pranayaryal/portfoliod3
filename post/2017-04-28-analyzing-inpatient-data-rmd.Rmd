@@ -26,12 +26,36 @@ The dataset has the following columns:
  - Average Total Payments               
  - Average Medicare Payments  
  
- The Average Covered Charges differs with differing providers. This will be our column of interest. Let us take a look at its histogram after converting the column to a float.
+ The Average Covered Charges differs with differing providers. This will be our column of interest. Let us take a look at its histogram after converting the column to a float. We must remember diagnoses have been clubbed together to allow for easy coding and charging. However, the granularity of individual disease is lost
 
 
 
 ![Histogram of the Average Charge](charge_hist.png)
 
+We see a few outliers beyond the 250000 mark. Let's explore who these might be.
+There are apparently 513 instances of charges above that. 
+
+The top 5 diagnoses for this outlier are:
+
+ - 870  SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS   132
+ - 329  MAJOR SMALL & LARGE BOWEL PROCEDURES W MCC   117
+ - 853  INFECTIOUS & PARASITIC DISEASES W O.R. PROCEDURE W MCC   117
+ - 207  RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS    96
+ - 460  SPINAL FUSION EXCEPT CERVICAL W/O MCC    15
+ 
+Looks like septicemia or severe sepsis with mechanical ventilation is an expensive disease to treat. Mechanical ventilation means that a tube has been inserted a person's windpipe and a machine helps with his breathing. Understandably, this is only done in ICU and is expensive.
+
+Which is the most expensive to treat overall?
+
+- 870 - SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS 163227.33
+- 207 - RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS 143428.05
+- 853 - INFECTIOUS & PARASITIC DISEASES W O.R. PROCEDURE W MCC 139186.35
+- 329 - MAJOR SMALL & LARGE BOWEL PROCEDURES W MCC 135330.94
+- 246 - PERC CARDIOVASC PROC W DRUG-ELUTING STENT W MCC OR 4+ VESSELS/STENTS  96348.81
+
+Looks like septicemia is still the overall most expensive
+
+The spinal fusion (code 460) in the outlier list is interesting because it is not there in the overall list. I don't know what it is done for. Let me google and come back.
 
 
 

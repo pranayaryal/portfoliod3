@@ -1,0 +1,70 @@
+<table>
+<tbody>
+<tr class="odd">
+<td>title: Analyzing Inpatient Data From the Hospital Charge Data Set</td>
+</tr>
+<tr class="even">
+<td>author: Pranay Aryal</td>
+</tr>
+<tr class="odd">
+<td>date: ‘2017-04-28’</td>
+</tr>
+<tr class="even">
+<td>slug: ’’</td>
+</tr>
+<tr class="odd">
+<td>categories: []</td>
+</tr>
+<tr class="even">
+<td>tags: []</td>
+</tr>
+<tr class="odd">
+<td>draft: yes</td>
+</tr>
+</tbody>
+</table>
+<div id="lets-examine-the-hospital-charge-dataset-from-data.gov" class="section level2">
+<h2>Let’s examine the Hospital Charge Dataset from data.gov</h2>
+<p>I wanted to analyse this dataset because I wanted to know the different charges among different providers</p>
+<p>The dataset has the following columns:</p>
+<ul>
+<li>DRG Definition (diagnosis)<br />
+</li>
+<li>Provider Id<br />
+</li>
+<li>Provider Name<br />
+</li>
+<li>Provider Street Address<br />
+</li>
+<li>Provider City<br />
+</li>
+<li>Provider State<br />
+</li>
+<li>Provider Zip Code<br />
+</li>
+<li>Hospital Referral Region Description</li>
+<li>Total Discharges<br />
+</li>
+<li>Average Covered Charges<br />
+</li>
+<li>Average Total Payments<br />
+</li>
+<li>Average Medicare Payments</li>
+</ul>
+<p>The Average Covered Charges differs with differing providers. This will be our column of interest. Let us take a look at its histogram after converting the column to a float. We must remember diagnoses have been clubbed together to allow for easy coding and charging. However, the granularity of individual disease is lost because of this.</p>
+<div class="figure">
+<img src="charge_hist.png" alt="Histogram of the Average Charge" />
+<p class="caption">Histogram of the Average Charge</p>
+</div>
+<p>We see a few outliers beyond the 250000 mark. Let’s explore who these might be. There are apparently 513 instances of charges above that.</p>
+<p>The top 5 diagnoses for this outlier are:</p>
+<ul>
+<li>870 SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS 132</li>
+<li>329 MAJOR SMALL &amp; LARGE BOWEL PROCEDURES W MCC 117</li>
+<li>853 INFECTIOUS &amp; PARASITIC DISEASES W O.R. PROCEDURE W MCC 117</li>
+<li>207 RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS 96</li>
+<li>460 SPINAL FUSION EXCEPT CERVICAL W/O MCC 15</li>
+</ul>
+<p>Looks like septicemia or severe sepsis with mechanical ventilation is an expensive disease to treat. Mechanical ventilation means that a tube has been inserted a person’s windpipe and a machine helps with his breathing. Understandably, this is only done in ICU and is expensive.</p>
+<p>Which is the most expensive to treat overall? Let us try to see that.</p>
+</div>

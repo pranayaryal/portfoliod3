@@ -290,11 +290,31 @@ The dataset has the following columns:
 </li>
 <li>Average Medicare Payments</li>
 </ul>
-<p>The Average Covered Charges differs with differing providers. This will be our column of interest. Let us take a look at its histogram after converting the column to a float.</p>
+<p>The Average Covered Charges differs with differing providers. This will be our column of interest. Let us take a look at its histogram after converting the column to a float. We must remember diagnoses have been clubbed together to allow for easy coding and charging. However, the granularity of individual disease is lost</p>
 <div class="figure">
 <img src="charge_hist.png" alt="Histogram of the Average Charge" />
 <p class="caption">Histogram of the Average Charge</p>
 </div>
+<p>We see a few outliers beyond the 250000 mark. Let’s explore who these might be. There are apparently 513 instances of charges above that.</p>
+<p>The top 5 diagnoses for this outlier are:</p>
+<ul>
+<li>870 SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS 132</li>
+<li>329 MAJOR SMALL &amp; LARGE BOWEL PROCEDURES W MCC 117</li>
+<li>853 INFECTIOUS &amp; PARASITIC DISEASES W O.R. PROCEDURE W MCC 117</li>
+<li>207 RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS 96</li>
+<li>460 SPINAL FUSION EXCEPT CERVICAL W/O MCC 15</li>
+</ul>
+<p>Looks like septicemia or severe sepsis with mechanical ventilation is an expensive disease to treat. Mechanical ventilation means that a tube has been inserted a person’s windpipe and a machine helps with his breathing. Understandably, this is only done in ICU and is expensive.</p>
+<p>Which is the most expensive to treat overall?</p>
+<ul>
+<li>870 - SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS 163227.33</li>
+<li>207 - RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS 143428.05</li>
+<li>853 - INFECTIOUS &amp; PARASITIC DISEASES W O.R. PROCEDURE W MCC 139186.35</li>
+<li>329 - MAJOR SMALL &amp; LARGE BOWEL PROCEDURES W MCC 135330.94</li>
+<li>246 - PERC CARDIOVASC PROC W DRUG-ELUTING STENT W MCC OR 4+ VESSELS/STENTS 96348.81</li>
+</ul>
+<p>Looks like septicemia is still the overall most expensive</p>
+<p>The spinal fusion (code 460) in the outlier list is interesting because it is not there in the overall list. I don’t know what it is done for. Let me google and come back.</p>
 </div>
 
               

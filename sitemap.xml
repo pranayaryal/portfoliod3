@@ -2,34 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://pranayaryal.github.io/2017/04/word-vectors/</loc>
+    <loc>/2017/04/analyzing-inpatient-data-from-the-hospital-charge-data-set/</loc>
+    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2017/04/word-vectors/</loc>
     <lastmod>2017-04-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://pranayaryal.github.io/archives/</loc>
+    <loc>/archives/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://pranayaryal.github.io/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://pranayaryal.github.io/post/</loc>
-    <lastmod>2017-04-21T00:00:00+00:00</lastmod>
+    <loc>/post/</loc>
+    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://pranayaryal.github.io/</loc>
-    <lastmod>2017-04-21T00:00:00+00:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://pranayaryal.github.io/tags/</loc>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   

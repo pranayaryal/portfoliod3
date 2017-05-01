@@ -2,21 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pranay Aryal</title>
-    <link>https://pranayaryal.github.io/</link>
+    <link>/</link>
     <description>Recent content on Pranay Aryal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Apr 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Apr 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://pranayaryal.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Analyzing Inpatient Data From the Hospital Charge Data Set</title>
+      <link>/2017/04/analyzing-inpatient-data-from-the-hospital-charge-data-set/</link>
+      <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/04/analyzing-inpatient-data-from-the-hospital-charge-data-set/</guid>
+      <description>Let’s examine the Hospital Charge Dataset from data.gov  </description>
+    </item>
+    
+    <item>
       <title>Word Vectors</title>
-      <link>https://pranayaryal.github.io/2017/04/word-vectors/</link>
+      <link>/2017/04/word-vectors/</link>
       <pubDate>Fri, 21 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://pranayaryal.github.io/2017/04/word-vectors/</guid>
+      <guid>/2017/04/word-vectors/</guid>
       <description>Word Vectors Word Vectors have been shown to capture semantic and syntactic relationships very well
  </description>
     </item>

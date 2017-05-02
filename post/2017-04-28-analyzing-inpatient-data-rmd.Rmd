@@ -8,8 +8,18 @@ tags: []
 draft: yes
 ---
 
-## Let's examine the Hospital Charge Dataset from data.gov
-I wanted to analyse this dataset because I wanted to know how charges vary among providers. 
+### About the dataset
+
+The dataset is [openly available](https://www.data.gov/health/). It shows the provider summary for the top 100 Diagnosis-Related Groups (DRG) for the year 2011
+
+```{r message=F, warning=F}
+library(tidyverse)
+inpatient <- read_csv('~/Downloads/inpatient.csv')
+inpatient %>% dim
+```
+
+
+
 
 Let me show you one row of the dataset (it has been split into two lines)
 

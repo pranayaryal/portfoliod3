@@ -8,37 +8,11 @@ tags: []
 draft: yes
 ---
 
-### About the dataset
+#### About the dataset
 
-The dataset is [openly available](https://www.data.gov/health/). It shows the provider summary for the top 100 Diagnosis-Related Groups (DRG) for the year 2011
+The dataset is [openly available](https://www.data.gov/health/). It shows the provider summary for the top 100 Diagnosis-Related Groups (DRG) for the year 2011 in the US. DRGs only capture diagnosis groups which encompass related diagnoses for ease of classification and coding. However, the details are lost with this.
 
-```{r message=F, warning=F}
-library(tidyverse)
-inpatient <- read_csv('~/Downloads/inpatient.csv')
-inpatient %>% dim
-```
-
-
-
-
-Let me show you one row of the dataset (it has been split into two lines)
-
-DRG Definition | Provider Id | Provider Name | Provider Street Address | Provider City| Provider State | Provider Zip Code | Hospital Referral Region Descri 
----------------|-------------|---------------|-------------------------|--------------|----------------|-------------------|-------------------------------
-039 -EXTRACRANIAL PROCEDURES W/O CC OR MCC | 10001 | SOUTHEAST ALABAMA MEDICAL CENTER | 1108 ROSS CLARK CIR | DOTHAN | AL  |  36301 | AL - Dothan 
-
-
-
-
-
-
-
-Total Discharges | Average Covered Charges | Average Total Payments | Average Medicare Payments |
------------------|-------------------------|------------------------|---------------------------|
-91 | $32963.07 | $5777.24 | $4763.73 | 
-
-
-
+####Columns in the dataset
 
 The dataset has the following columns: 
 
@@ -57,9 +31,16 @@ The dataset has the following columns:
  
  The Average Covered Charges differs with differing providers. This will be our column of interest. Let us take a look at its histogram after converting the column to a float. We must remember diagnoses have been clubbed together to allow for easy coding and charging. However, the granularity of individual disease is lost
 
+```{r echo=F, message=F, warning=F}
+library(tidyverse)
+inpatient <- read_csv('~/Downloads/inpatient.csv')
+inpatient[,10:12] <- sapply(inpatient[,10:12], function(x)gsub('\\$', '', x))
+inpatient[,10:12] <- sapply(inpatient[,10:12], function(x)as.numeric(x))
+inpatient$`Average Covered Charges` %>% qplot
+
+```
 
 
-![Histogram of the Average Charge](charge_hist.png)
 
 There seems to be a few outliers beyond the 250000 mark. Let's explore them.
 The diagnosis with the highest charges is "RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS." The provider is Stanford Hospital, CA. This is understandable because Stanford is a teaching hospital. It is also situated in California, an expensive state. The patient required ventilator support which is an expensive treatment managed in ICU.

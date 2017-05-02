@@ -9,9 +9,9 @@ draft: yes
 ---
 
 ## Let's examine the Hospital Charge Dataset from data.gov
-I wanted to analyse this dataset because I wanted to know charges varies with providers. 
+I wanted to analyse this dataset because I wanted to know how charges vary among providers. 
 
-Let me give you small snapshot of the dataset
+Let me show you one row of the dataset (it has been split into two lines)
 
 DRG Definition | Provider Id | Provider Name | Provider Street Address | Provider City| Provider State | Provider Zip Code | Hospital Referral Region Descri 
 ---------------|-------------|---------------|-------------------------|--------------|----------------|-------------------|-------------------------------
@@ -23,10 +23,9 @@ DRG Definition | Provider Id | Provider Name | Provider Street Address | Provide
 
 
 
-
 Total Discharges | Average Covered Charges | Average Total Payments | Average Medicare Payments |
 -----------------|-------------------------|------------------------|---------------------------|
-
+91 | $32963.07 | $5777.24 | $4763.73 | 
 
 
 
@@ -52,8 +51,36 @@ The dataset has the following columns:
 
 ![Histogram of the Average Charge](charge_hist.png)
 
-We see a few outliers beyond the 250000 mark. Let's explore who these might be.
-There are apparently 513 instances of charges above that. 
+There seems to be a few outliers beyond the 250000 mark. Let's explore them.
+The diagnosis with the highest charges is "RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS." The provider is Stanford Hospital, CA. This is understandable because Stanford is a teaching hospital. It is also situated in California, an expensive state. The patient required ventilator support which is an expensive treatment managed in ICU.
+
+What are the top 5 most expensive diagnoses?
+
+Diagnosis                                  | Average Charge
+-------------------------------------------|----------------
+SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS | $163227.33
+RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS |  $143428.05
+INFECTIOUS & PARASITIC DISEASES W O.R. PROCEDURE W MCC |  $139186.35
+MAJOR SMALL & LARGE BOWEL PROCEDURES W MCC | $135330.94
+PERC CARDIOVASC PROC W DRUG-ELUTING STENT W MCC OR 4+ VESSELS/STENTS  |  $96348.81
+
+
+Septicemia or severe sepsis with mechanical ventilation is an expensive disease to treat. Mechanical ventilation means that a tube has been inserted a person's windpipe and a machine helps with his breathing. Understandably, this is only done in ICU and is expensive. Also the duration of the disease is unknown here because it only says 96+ Hours which could be from a week to a month or more.
+
+Which are the providers with highest average charges?
+
+Hospital | Average Charge (dollars)
+---------|--------------------------
+UVA Health Sciences Center, Charlotesville, VA | 21922.00
+Bayonne Hospital Center, Bayonne, NJ | 147441 
+Doctors Medical Center, Modesto, CA | 144695
+Stanford Hospital, Stanford, CA | 138818
+Northbay Medical Center, Fairfield, CA | 138504
+
+Three seem to be from California, which is understandable because of high expenses in CA. Let's explore why the one from VA is expensive. VA ranks 29th among the states for average charges. This is strange. Why should one hospital from VA be so expensive? 
+
+It turns out that there is only one entry for that hospital in the dataset and the diagnosis is "RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS"Let's see how the charge for this diagnosis compares with others in VA
+
 
 The top 5 diagnoses for this outlier are:
 
@@ -63,15 +90,9 @@ The top 5 diagnoses for this outlier are:
  - 207  RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS    96
  - 460  SPINAL FUSION EXCEPT CERVICAL W/O MCC    15
  
-Looks like septicemia or severe sepsis with mechanical ventilation is an expensive disease to treat. Mechanical ventilation means that a tube has been inserted a person's windpipe and a machine helps with his breathing. Understandably, this is only done in ICU and is expensive.
 
 Which is the most expensive to treat overall?
 
-- 870 - SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS 163227.33
-- 207 - RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS 143428.05
-- 853 - INFECTIOUS & PARASITIC DISEASES W O.R. PROCEDURE W MCC 139186.35
-- 329 - MAJOR SMALL & LARGE BOWEL PROCEDURES W MCC 135330.94
-- 246 - PERC CARDIOVASC PROC W DRUG-ELUTING STENT W MCC OR 4+ VESSELS/STENTS  96348.81
 
 Looks like septicemia is still the overall most expensive
 

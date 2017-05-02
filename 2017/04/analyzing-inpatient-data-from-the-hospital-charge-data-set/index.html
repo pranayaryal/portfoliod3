@@ -30,21 +30,21 @@
     
 
     
-    <meta name="description" content="Let’s examine the Hospital Charge Dataset from data.gov I wanted to analyse this dataset because I wanted to know charges varies with providers.
-Let me give you small snapshot of the dataset
-   DRG Definition Provider Id Provider Name Provider Street Address Provider City Provider State Provider Zip Code Hospital Referral Region Descri    039 -EXTRACRANIAL PROCEDURES W/O CC OR MCC 10001 SOUTHEAST ALABAMA MEDICAL CENTER 1108 ROSS CLARK CIR DOTHAN AL 36301 AL - Dothan       Total Discharges Average Covered Charges Average Total Payments Average Medicare Payments      The dataset has the following columns:">
-    <meta property="og:description" content="Let’s examine the Hospital Charge Dataset from data.gov I wanted to analyse this dataset because I wanted to know charges varies with providers.
-Let me give you small snapshot of the dataset
-   DRG Definition Provider Id Provider Name Provider Street Address Provider City Provider State Provider Zip Code Hospital Referral Region Descri    039 -EXTRACRANIAL PROCEDURES W/O CC OR MCC 10001 SOUTHEAST ALABAMA MEDICAL CENTER 1108 ROSS CLARK CIR DOTHAN AL 36301 AL - Dothan       Total Discharges Average Covered Charges Average Total Payments Average Medicare Payments      The dataset has the following columns:">
+    <meta name="description" content="Let’s examine the Hospital Charge Dataset from data.gov I wanted to analyse this dataset because I wanted to know how charges vary among providers.
+Let me show you one row of the dataset (it has been split into two lines)
+   DRG Definition Provider Id Provider Name Provider Street Address Provider City Provider State Provider Zip Code Hospital Referral Region Descri    039 -EXTRACRANIAL PROCEDURES W/O CC OR MCC 10001 SOUTHEAST ALABAMA MEDICAL CENTER 1108 ROSS CLARK CIR DOTHAN AL 36301 AL - Dothan       Total Discharges Average Covered Charges Average Total Payments Average Medicare Payments    91 $32963.">
+    <meta property="og:description" content="Let’s examine the Hospital Charge Dataset from data.gov I wanted to analyse this dataset because I wanted to know how charges vary among providers.
+Let me show you one row of the dataset (it has been split into two lines)
+   DRG Definition Provider Id Provider Name Provider Street Address Provider City Provider State Provider Zip Code Hospital Referral Region Descri    039 -EXTRACRANIAL PROCEDURES W/O CC OR MCC 10001 SOUTHEAST ALABAMA MEDICAL CENTER 1108 ROSS CLARK CIR DOTHAN AL 36301 AL - Dothan       Total Discharges Average Covered Charges Average Total Payments Average Medicare Payments    91 $32963.">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Analyzing Inpatient Data From the Hospital Charge Data Set">
     <meta property="og:url" content="/2017/04/analyzing-inpatient-data-from-the-hospital-charge-data-set/">
     <meta property="og:site_name" content="Pranay Aryal">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Pranay Aryal">
-    <meta name="twitter:description" content="Let’s examine the Hospital Charge Dataset from data.gov I wanted to analyse this dataset because I wanted to know charges varies with providers.
-Let me give you small snapshot of the dataset
-   DRG Definition Provider Id Provider Name Provider Street Address Provider City Provider State Provider Zip Code Hospital Referral Region Descri    039 -EXTRACRANIAL PROCEDURES W/O CC OR MCC 10001 SOUTHEAST ALABAMA MEDICAL CENTER 1108 ROSS CLARK CIR DOTHAN AL 36301 AL - Dothan       Total Discharges Average Covered Charges Average Total Payments Average Medicare Payments      The dataset has the following columns:">
+    <meta name="twitter:description" content="Let’s examine the Hospital Charge Dataset from data.gov I wanted to analyse this dataset because I wanted to know how charges vary among providers.
+Let me show you one row of the dataset (it has been split into two lines)
+   DRG Definition Provider Id Provider Name Provider Street Address Provider City Provider State Provider Zip Code Hospital Referral Region Descri    039 -EXTRACRANIAL PROCEDURES W/O CC OR MCC 10001 SOUTHEAST ALABAMA MEDICAL CENTER 1108 ROSS CLARK CIR DOTHAN AL 36301 AL - Dothan       Total Discharges Average Covered Charges Average Total Payments Average Medicare Payments    91 $32963.">
     
     
 
@@ -237,8 +237,8 @@ Let me give you small snapshot of the dataset
             <div class="main-content-wrap">
               <div id="lets-examine-the-hospital-charge-dataset-from-data.gov" class="section level2">
 <h2>Let’s examine the Hospital Charge Dataset from data.gov</h2>
-<p>I wanted to analyse this dataset because I wanted to know charges varies with providers.</p>
-<p>Let me give you small snapshot of the dataset</p>
+<p>I wanted to analyse this dataset because I wanted to know how charges vary among providers.</p>
+<p>Let me show you one row of the dataset (it has been split into two lines)</p>
 <table style="width:100%;">
 <colgroup>
 <col width="10%" />
@@ -291,6 +291,12 @@ Let me give you small snapshot of the dataset
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td>91</td>
+<td>$32963.07</td>
+<td>$5777.24</td>
+<td>$4763.73</td>
+</tr>
 </tbody>
 </table>
 <p>The dataset has the following columns:</p>
@@ -323,7 +329,76 @@ Let me give you small snapshot of the dataset
 <img src="charge_hist.png" alt="Histogram of the Average Charge" />
 <p class="caption">Histogram of the Average Charge</p>
 </div>
-<p>We see a few outliers beyond the 250000 mark. Let’s explore who these might be. There are apparently 513 instances of charges above that.</p>
+<p>There seems to be a few outliers beyond the 250000 mark. Let’s explore them. The diagnosis with the highest charges is “RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS.” The provider is Stanford Hospital, CA. This is understandable because Stanford is a teaching hospital. It is also situated in California, an expensive state. The patient required ventilator support which is an expensive treatment managed in ICU.</p>
+<p>What are the top 5 most expensive diagnoses?</p>
+<table style="width:85%;">
+<colgroup>
+<col width="61%" />
+<col width="23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Diagnosis</th>
+<th>Average Charge</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS</td>
+<td>$163227.33</td>
+</tr>
+<tr class="even">
+<td>RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS</td>
+<td>$143428.05</td>
+</tr>
+<tr class="odd">
+<td>INFECTIOUS &amp; PARASITIC DISEASES W O.R. PROCEDURE W MCC</td>
+<td>$139186.35</td>
+</tr>
+<tr class="even">
+<td>MAJOR SMALL &amp; LARGE BOWEL PROCEDURES W MCC</td>
+<td>$135330.94</td>
+</tr>
+<tr class="odd">
+<td>PERC CARDIOVASC PROC W DRUG-ELUTING STENT W MCC OR 4+ VESSELS/STENTS</td>
+<td>$96348.81</td>
+</tr>
+</tbody>
+</table>
+<p>Septicemia or severe sepsis with mechanical ventilation is an expensive disease to treat. Mechanical ventilation means that a tube has been inserted a person’s windpipe and a machine helps with his breathing. Understandably, this is only done in ICU and is expensive. Also the duration of the disease is unknown here because it only says 96+ Hours which could be from a week to a month or more.</p>
+<p>Which are the providers with highest average charges?</p>
+<table>
+<thead>
+<tr class="header">
+<th>Hospital</th>
+<th>Average Charge (dollars)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>UVA Health Sciences Center, Charlotesville, VA</td>
+<td>21922.00</td>
+</tr>
+<tr class="even">
+<td>Bayonne Hospital Center, Bayonne, NJ</td>
+<td>147441</td>
+</tr>
+<tr class="odd">
+<td>Doctors Medical Center, Modesto, CA</td>
+<td>144695</td>
+</tr>
+<tr class="even">
+<td>Stanford Hospital, Stanford, CA</td>
+<td>138818</td>
+</tr>
+<tr class="odd">
+<td>Northbay Medical Center, Fairfield, CA</td>
+<td>138504</td>
+</tr>
+</tbody>
+</table>
+<p>Three seem to be from California, which is understandable because of high expenses in CA. Let’s explore why the one from VA is expensive. VA ranks 29th among the states for average charges. This is strange. Why should one hospital from VA be so expensive?</p>
+<p>It turns out that there is only one entry for that hospital in the dataset and the diagnosis is “RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS”Let’s see how the charge for this diagnosis compares with others in VA</p>
 <p>The top 5 diagnoses for this outlier are:</p>
 <ul>
 <li>870 SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS 132</li>
@@ -332,15 +407,7 @@ Let me give you small snapshot of the dataset
 <li>207 RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS 96</li>
 <li>460 SPINAL FUSION EXCEPT CERVICAL W/O MCC 15</li>
 </ul>
-<p>Looks like septicemia or severe sepsis with mechanical ventilation is an expensive disease to treat. Mechanical ventilation means that a tube has been inserted a person’s windpipe and a machine helps with his breathing. Understandably, this is only done in ICU and is expensive.</p>
 <p>Which is the most expensive to treat overall?</p>
-<ul>
-<li>870 - SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS 163227.33</li>
-<li>207 - RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS 143428.05</li>
-<li>853 - INFECTIOUS &amp; PARASITIC DISEASES W O.R. PROCEDURE W MCC 139186.35</li>
-<li>329 - MAJOR SMALL &amp; LARGE BOWEL PROCEDURES W MCC 135330.94</li>
-<li>246 - PERC CARDIOVASC PROC W DRUG-ELUTING STENT W MCC OR 4+ VESSELS/STENTS 96348.81</li>
-</ul>
 <p>Looks like septicemia is still the overall most expensive</p>
 <p>The spinal fusion (code 460) in the outlier list is interesting because it is not there in the overall list. I don’t know what it is done for. Let me google and come back.</p>
 </div>
@@ -579,9 +646,9 @@ Let me give you small snapshot of the dataset
                   Apr 4, 2017
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Let’s examine the Hospital Charge Dataset from data.gov I wanted to analyse this dataset because I wanted to know charges varies with providers.
-Let me give you small snapshot of the dataset
-   DRG Definition Provider Id Provider Name Provider Street Address Provider City Provider State Provider Zip Code Hospital Referral Region Descri    039 -EXTRACRANIAL PROCEDURES W/O CC OR MCC 10001 SOUTHEAST ALABAMA MEDICAL CENTER 1108 ROSS CLARK CIR DOTHAN AL 36301 AL - Dothan       Total Discharges Average Covered Charges Average Total Payments Average Medicare Payments      The dataset has the following columns:</div>
+              <div class="media-content hide-xs font-merryweather">Let’s examine the Hospital Charge Dataset from data.gov I wanted to analyse this dataset because I wanted to know how charges vary among providers.
+Let me show you one row of the dataset (it has been split into two lines)
+   DRG Definition Provider Id Provider Name Provider Street Address Provider City Provider State Provider Zip Code Hospital Referral Region Descri    039 -EXTRACRANIAL PROCEDURES W/O CC OR MCC 10001 SOUTHEAST ALABAMA MEDICAL CENTER 1108 ROSS CLARK CIR DOTHAN AL 36301 AL - Dothan       Total Discharges Average Covered Charges Average Total Payments Average Medicare Payments    91 $32963.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

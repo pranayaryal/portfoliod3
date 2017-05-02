@@ -17,9 +17,9 @@
       <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>/2017/04/analyzing-inpatient-data-from-the-hospital-charge-data-set/</guid>
-      <description>Let’s examine the Hospital Charge Dataset from data.gov I wanted to analyse this dataset because I wanted to know charges varies with providers.
-Let me give you small snapshot of the dataset
-   DRG Definition Provider Id Provider Name Provider Street Address Provider City Provider State Provider Zip Code Hospital Referral Region Descri    039 -EXTRACRANIAL PROCEDURES W/O CC OR MCC 10001 SOUTHEAST ALABAMA MEDICAL CENTER 1108 ROSS CLARK CIR DOTHAN AL 36301 AL - Dothan       Total Discharges Average Covered Charges Average Total Payments Average Medicare Payments      The dataset has the following columns:</description>
+      <description>Let’s examine the Hospital Charge Dataset from data.gov I wanted to analyse this dataset because I wanted to know how charges vary among providers.
+Let me show you one row of the dataset (it has been split into two lines)
+   DRG Definition Provider Id Provider Name Provider Street Address Provider City Provider State Provider Zip Code Hospital Referral Region Descri    039 -EXTRACRANIAL PROCEDURES W/O CC OR MCC 10001 SOUTHEAST ALABAMA MEDICAL CENTER 1108 ROSS CLARK CIR DOTHAN AL 36301 AL - Dothan       Total Discharges Average Covered Charges Average Total Payments Average Medicare Payments    91 $32963.</description>
     </item>
     
   </channel>

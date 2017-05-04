@@ -10,7 +10,9 @@ draft: yes
 
 #### About the dataset
 
-The dataset is [openly available](https://www.data.gov/health/). It shows the provider summary for the top 100 Diagnosis-Related Groups (DRG) for the year 2011 in the US. DRGs only capture diagnosis groups which encompass related diagnoses for ease of classification and coding. However, the details are lost with this.
+The dataset is [openly available](https://www.data.gov/health/). It portrays the provider summary for the top 100 Diagnosis-Related Groups (DRG) for the year 2011 in the US. 
+
+DRGs only capture diagnosis groups which encompass related diagnoses for ease of classification and coding. However, this causes loss of details of individual diagnoses.
 
 ####Columns in the dataset
 
@@ -29,21 +31,31 @@ The dataset has the following columns:
  - Average Total Payments               
  - Average Medicare Payments  
  
- The Average Covered Charges differs with differing providers. This will be our column of interest. Let us take a look at its histogram after converting the column to a float. We must remember diagnoses have been clubbed together to allow for easy coding and charging. However, the granularity of individual disease is lost
+Average Covered Charges differs with providers. This will be our column of interest. Let us take a look at its histogram:
+ 
+ 
 
-```{r echo=F, message=F, warning=F}
-library(tidyverse)
-inpatient <- read_csv('~/Downloads/inpatient.csv')
-inpatient[,10:12] <- sapply(inpatient[,10:12], function(x)gsub('\\$', '', x))
-inpatient[,10:12] <- sapply(inpatient[,10:12], function(x)as.numeric(x))
-inpatient$`Average Covered Charges` %>% qplot
+![Histogram of the Average Charge](charge_hist.png)
 
-```
+####Exploring Outliers
+
+The distribution is right-skewed as would be for most charges. Here are the top 5 charges
+
+ Diagnosis | State | Charge
+ ----------|-------|-------
+ RESP SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS        |      CA       |          929118.9
+ RESP SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS      |        CA     |            918023.2
+ SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS      |        CA     |            637377.7
+ SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS      |        CA     |            628730.4
+ RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS      |        PA     |            613926.6
+
+It turns out that most 4 of them are from CA. This is understandable as CA is an expensive state. 
+
+The "Ventilator support 96+ hours" in the diagnosis, unfortunately, does not differentiate between one week or one month. 
+
+Septicemia and Respiratory System Diagnosis are expensive because they can be a complication of a number of diseases, prolonging hospital stay and increasing charges.
 
 
-
-There seems to be a few outliers beyond the 250000 mark. Let's explore them.
-The diagnosis with the highest charges is "RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS." The provider is Stanford Hospital, CA. This is understandable because Stanford is a teaching hospital. It is also situated in California, an expensive state. The patient required ventilator support which is an expensive treatment managed in ICU.
 
 What are the top 5 most expensive diagnoses?
 
@@ -56,7 +68,15 @@ MAJOR SMALL & LARGE BOWEL PROCEDURES W MCC | $135330.94
 PERC CARDIOVASC PROC W DRUG-ELUTING STENT W MCC OR 4+ VESSELS/STENTS  |  $96348.81
 
 
-Septicemia or severe sepsis with mechanical ventilation is an expensive disease to treat. Mechanical ventilation means that a tube has been inserted a person's windpipe and a machine helps with his breathing. Understandably, this is only done in ICU and is expensive. Also the duration of the disease is unknown here because it only says 96+ Hours which could be from a week to a month or more.
+This mirrors the above results for septicemia and respiratory system diagnosis. The 3rd diagnosis is not very clear. It could encompass abdominal infections and operations. 'MCC' here stands for 'major complications'. Let us see the average difference in charges for these diseases 'with complications' and 'without complications'.
+
+Diagnosis | Average Charge
+----------|---------------
+870 - SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS | 158949.5
+872 - SEPTICEMIA OR SEVERE SEPSIS W/O MV 96+ HOURS W/O MCC | 27680.9 
+871 - SEPTICEMIA OR SEVERE SEPSIS W/O MV 96+ HOURS W MCC  46028.75
+
+We can see that having a complication could increase charges upto six-fold. This illustrates how errors in coding cost a lot. If one has a hospital bill which seems unusual, such errors need to be looked at.
 
 Which are the providers with highest average charges?
 

@@ -17,7 +17,8 @@
       <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>/2017/04/analyzing-inpatient-data-from-the-hospital-charge-data-set/</guid>
-      <description>About the dataset The dataset is openly available. It shows the provider summary for the top 100 Diagnosis-Related Groups (DRG) for the year 2011 in the US. DRGs only capture diagnosis groups which encompass related diagnoses for ease of classification and coding. However, the details are lost with this.
+      <description>About the dataset The dataset is openly available. It portrays the provider summary for the top 100 Diagnosis-Related Groups (DRG) for the year 2011 in the US.
+DRGs only capture diagnosis groups which encompass related diagnoses for ease of classification and coding. However, this causes loss of details of individual diagnoses.
  Columns in the dataset The dataset has the following columns:
  DRG Definition (diagnosis)
  Provider Id

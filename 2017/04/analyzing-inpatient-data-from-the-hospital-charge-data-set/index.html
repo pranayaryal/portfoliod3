@@ -1,24 +1,7 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    
+<head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.20.1">
@@ -27,9 +10,8 @@
     <meta name="keywords" content="">
 
     <link rel="icon" href="/favicon.png">
-    
 
-    
+
     <meta name="description" content="About the dataset The dataset is openly available. It portrays the provider summary for the top 100 Diagnosis-Related Groups (DRG) for the year 2011 in the US.
 DRGs only capture diagnosis groups which encompass related diagnoses for ease of classification and coding. However, this causes loss of details of individual diagnoses.
  Columns in the dataset The dataset has the following columns:
@@ -54,660 +36,727 @@ DRGs only capture diagnosis groups which encompass related diagnoses for ease of
  DRG Definition (diagnosis)
  Provider Id
  Provider Name">
-    
-    
 
-    
-    
 
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/9b8b60d3f08e067472a19a38f8b2b058?s=640">
-    
+    <meta property="og:image" content="//www.gravatar.com/avatar/9b8b60d3f08e067472a19a38f8b2b058?s=640">
 
-    
-    
-    
 
-    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.css"/>
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css"/>
 
-    
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" />
-    
-    
-    <link rel="stylesheet" href="/css/style-gwlo24d2hxipxk8bi1sxik0zhlpn9t7ebcmgp9kubmmcjfzlavuyhvbqumhn.min.css" />
-    
-    
 
-    
-      
-    
-    
-  </head>
+    <link rel="stylesheet" href="/css/style-gwlo24d2hxipxk8bi1sxik0zhlpn9t7ebcmgp9kubmmcjfzlavuyhvbqumhn.min.css"/>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 
-  <body>
-    <div id="blog">
-      <header id="header" data-behavior="4">
-  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-  <div class="header-title">
-    <a class="header-title-link" href="/">Pranay Aryal</a>
-  </div>
-  
-    
-      <a class="header-right-picture "
-         href="/#about">
-    
-    
-    
-      
-        <img class="header-picture" src="//www.gravatar.com/avatar/9b8b60d3f08e067472a19a38f8b2b058?s=90" alt="Author&#39;s picture" />
-      
-    
-    </a>
-  
-</header>
 
-      <nav id="sidebar" data-behavior="4">
-  <div class="sidebar-container">
-    
-      <div class="sidebar-profile">
-        <a href="/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/9b8b60d3f08e067472a19a38f8b2b058?s=110" alt="Author&#39;s picture" />
+</head>
+<style>
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+
+    .bar {
+        fill: orange;
+    }
+
+    .bar:hover {
+        fill: orangered;
+    }
+
+    .x.axis path {
+        display: none;
+    }
+
+    .d3-tip {
+        line-height: 1;
+        font-weight: bold;
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        border-radius: 2px;
+    }
+
+    /* Creates a small triangle extender for the tooltip */
+    .d3-tip:after {
+        box-sizing: border-box;
+        display: inline;
+        font-size: 10px;
+        width: 100%;
+        line-height: 1;
+        color: rgba(0, 0, 0, 0.8);
+        content: "\25BC";
+        position: absolute;
+        text-align: center;
+    }
+
+    /* Style northward tooltips differently */
+    .d3-tip.n:after {
+        margin: -1px 0 0 0;
+        top: 100%;
+        left: 0;
+</style>
+
+
+<body>
+<div id="blog">
+    <header id="header" data-behavior="4">
+        <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+        <div class="header-title">
+            <a class="header-title-link" href="/">Pranay Aryal</a>
+        </div>
+
+
+        <a class="header-right-picture "
+           href="/#about">
+
+
+            <img class="header-picture" src="//www.gravatar.com/avatar/9b8b60d3f08e067472a19a38f8b2b058?s=90"
+                 alt="Author&#39;s picture"/>
+
+
         </a>
-        <h4 class="sidebar-profile-name">Pranay Aryal</h4>
-        
-          <h5 class="sidebar-profile-bio">Hi I am a web developer who loves Data Science. I have a background in medicine</h5>
-        
-      </div>
-    
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="/categories">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-      
-      <span class="sidebar-button-desc">Categories</span>
-    </a>
-  </li>
 
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="/tags">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-      
-      <span class="sidebar-button-desc">Tags</span>
-    </a>
-  </li>
+    </header>
 
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="/archives">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-      
-      <span class="sidebar-button-desc">Archives</span>
-    </a>
-  </li>
+    <nav id="sidebar" data-behavior="4">
+        <div class="sidebar-container">
 
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="/#about">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-      
-      <span class="sidebar-button-desc">About</span>
-    </a>
-  </li>
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture"
+                         src="//www.gravatar.com/avatar/9b8b60d3f08e067472a19a38f8b2b058?s=110"
+                         alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Pranay Aryal</h4>
 
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="/">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-      
-      <span class="sidebar-button-desc">Home</span>
-    </a>
-  </li>
+                <h5 class="sidebar-profile-bio">Hi I am a web developer who loves Data Science. I have a background in
+                    medicine</h5>
 
-    </ul>
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://stackoverflow.com/users/3308533/pranay-aryal">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
-      
-      <span class="sidebar-button-desc">Stack Overflow</span>
-    </a>
-  </li>
+            </div>
 
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://github.com/pranayaryal">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
-      
-      <span class="sidebar-button-desc">GitHub</span>
-    </a>
-  </li>
+            <ul class="sidebar-buttons">
 
-    </ul>
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="/index.xml">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-      
-      <span class="sidebar-button-desc">RSS</span>
-    </a>
-  </li>
+                <li class="sidebar-button">
 
-    </ul>
-  </div>
-</nav>
+                    <a class="sidebar-button-link " href="/categories">
 
-      
+                        <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
 
-      <div id="main" data-behavior="4"
-        class="
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-button">
+
+                    <a class="sidebar-button-link " href="/tags">
+
+                        <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-button">
+
+                    <a class="sidebar-button-link " href="/archives">
+
+                        <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-button">
+
+                    <a class="sidebar-button-link " href="/#about">
+
+                        <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-button">
+
+                    <a class="sidebar-button-link " href="/">
+
+                        <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+                </li>
+
+            </ul>
+            <ul class="sidebar-buttons">
+
+                <li class="sidebar-button">
+
+                    <a class="sidebar-button-link " href="https://stackoverflow.com/users/3308533/pranay-aryal">
+
+                        <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-button">
+
+                    <a class="sidebar-button-link " href="https://github.com/pranayaryal">
+
+                        <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+                </li>
+
+            </ul>
+            <ul class="sidebar-buttons">
+
+                <li class="sidebar-button">
+
+                    <a class="sidebar-button-link " href="/index.xml">
+
+                        <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <div id="main" data-behavior="4"
+         class="
                hasCoverMetaIn
                ">
         <article class="post" itemscope itemType="http://schema.org/BlogPosting">
-          
-          
+
+
             <div class="post-header main-content-wrap text-left">
-  
-    <h1 class="post-title" itemprop="headline">
-      Analyzing Inpatient Data From the Hospital Charge Data Set
-    </h1>
-  
-  <div class="postShorten-meta post-meta">
-  
-    <time itemprop="datePublished" datetime="2017-04-28T00:00:00Z">
-      
-  April 28, 2017
 
-    </time>
-  
-  
+                <h1 class="post-title" itemprop="headline">
+                    Analyzing Inpatient Data From the Hospital Charge Data Set
+                </h1>
 
-</div>
+                <div class="postShorten-meta post-meta">
 
-</div>
-          
-          <div class="post-content markdown" itemprop="articleBody">
-            <div class="main-content-wrap">
-              <div id="about-the-dataset" class="section level4">
-<h4>About the dataset</h4>
-<p>The dataset is <a href="https://www.data.gov/health/">openly available</a>. It portrays the provider summary for the top 100 Diagnosis-Related Groups (DRG) for the year 2011 in the US.</p>
-<p>DRGs only capture diagnosis groups which encompass related diagnoses for ease of classification and coding. However, this causes loss of details of individual diagnoses.</p>
-</div>
-<div id="columns-in-the-dataset" class="section level4">
-<h4>Columns in the dataset</h4>
-<p>The dataset has the following columns:</p>
-<ul>
-<li>DRG Definition (diagnosis)<br />
-</li>
-<li>Provider Id<br />
-</li>
-<li>Provider Name<br />
-</li>
-<li>Provider Street Address<br />
-</li>
-<li>Provider City<br />
-</li>
-<li>Provider State<br />
-</li>
-<li>Provider Zip Code<br />
-</li>
-<li>Hospital Referral Region Description</li>
-<li>Total Discharges<br />
-</li>
-<li>Average Covered Charges<br />
-</li>
-<li>Average Total Payments<br />
-</li>
-<li>Average Medicare Payments</li>
-</ul>
-<p>Average Covered Charges differs with providers. This will be our column of interest. Let us take a look at its histogram:</p>
-<div class="figure">
-<img src="charge_hist.png" alt="Histogram of the Average Charge" />
-<p class="caption">Histogram of the Average Charge</p>
-</div>
-</div>
-<div id="exploring-outliers" class="section level4">
-<h4>Exploring Outliers</h4>
-<p>The distribution is right-skewed as would be for most charges. Here are the top 5 charges</p>
-<table>
-<thead>
-<tr class="header">
-<th>Diagnosis</th>
-<th>State</th>
-<th>Charge</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>RESP SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS</td>
-<td>CA</td>
-<td>929118.9</td>
-</tr>
-<tr class="even">
-<td>RESP SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS</td>
-<td>CA</td>
-<td>918023.2</td>
-</tr>
-<tr class="odd">
-<td>SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS</td>
-<td>CA</td>
-<td>637377.7</td>
-</tr>
-<tr class="even">
-<td>SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS</td>
-<td>CA</td>
-<td>628730.4</td>
-</tr>
-<tr class="odd">
-<td>RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS</td>
-<td>PA</td>
-<td>613926.6</td>
-</tr>
-</tbody>
-</table>
-<p>It turns out that most 4 of them are from CA. This is understandable as CA is an expensive state.</p>
-<p>The “Ventilator support 96+ hours” in the diagnosis, unfortunately, does not differentiate between one week or one month.</p>
-<p>Septicemia and Respiratory System Diagnosis are expensive because they can be a complication of a number of diseases, prolonging hospital stay and increasing charges.</p>
-<p>What are the top 5 most expensive diagnoses?</p>
-<table style="width:85%;">
-<colgroup>
-<col width="61%" />
-<col width="23%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Diagnosis</th>
-<th>Average Charge</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS</td>
-<td>$163227.33</td>
-</tr>
-<tr class="even">
-<td>RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS</td>
-<td>$143428.05</td>
-</tr>
-<tr class="odd">
-<td>INFECTIOUS &amp; PARASITIC DISEASES W O.R. PROCEDURE W MCC</td>
-<td>$139186.35</td>
-</tr>
-<tr class="even">
-<td>MAJOR SMALL &amp; LARGE BOWEL PROCEDURES W MCC</td>
-<td>$135330.94</td>
-</tr>
-<tr class="odd">
-<td>PERC CARDIOVASC PROC W DRUG-ELUTING STENT W MCC OR 4+ VESSELS/STENTS</td>
-<td>$96348.81</td>
-</tr>
-</tbody>
-</table>
-<p>This mirrors the above results for septicemia and respiratory system diagnosis. The 3rd diagnosis is not very clear. It could encompass abdominal infections and operations. ‘MCC’ here stands for ‘major complications’. Let us see the average difference in charges for these diseases ‘with complications’ and ‘without complications’.</p>
-<table>
-<thead>
-<tr class="header">
-<th>Diagnosis</th>
-<th>Average Charge</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>870 - SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS</td>
-<td>158949.5</td>
-</tr>
-<tr class="even">
-<td>872 - SEPTICEMIA OR SEVERE SEPSIS W/O MV 96+ HOURS W/O MCC</td>
-<td>27680.9</td>
-</tr>
-</tbody>
-</table>
-<p>871 - SEPTICEMIA OR SEVERE SEPSIS W/O MV 96+ HOURS W MCC 46028.75</p>
-<p>We can see that having a complication could increase charges upto six-fold. This illustrates how errors in coding cost a lot. If one has a hospital bill which seems unusual, such errors need to be looked at.</p>
-<p>Which are the providers with highest average charges?</p>
-<table>
-<thead>
-<tr class="header">
-<th>Hospital</th>
-<th>Average Charge (dollars)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>UVA Health Sciences Center, Charlotesville, VA</td>
-<td>21922.00</td>
-</tr>
-<tr class="even">
-<td>Bayonne Hospital Center, Bayonne, NJ</td>
-<td>147441</td>
-</tr>
-<tr class="odd">
-<td>Doctors Medical Center, Modesto, CA</td>
-<td>144695</td>
-</tr>
-<tr class="even">
-<td>Stanford Hospital, Stanford, CA</td>
-<td>138818</td>
-</tr>
-<tr class="odd">
-<td>Northbay Medical Center, Fairfield, CA</td>
-<td>138504</td>
-</tr>
-</tbody>
-</table>
-<p>Three seem to be from California, which is understandable because of high expenses in CA. Let’s explore why the one from VA is expensive. VA ranks 29th among the states for average charges. This is strange. Why should one hospital from VA be so expensive?</p>
-<p>It turns out that there is only one entry for that hospital in the dataset and the diagnosis is “RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS”Let’s see how the charge for this diagnosis compares with others in VA</p>
-<p>The top 5 diagnoses for this outlier are:</p>
-<ul>
-<li>870 SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS 132</li>
-<li>329 MAJOR SMALL &amp; LARGE BOWEL PROCEDURES W MCC 117</li>
-<li>853 INFECTIOUS &amp; PARASITIC DISEASES W O.R. PROCEDURE W MCC 117</li>
-<li>207 RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS 96</li>
-<li>460 SPINAL FUSION EXCEPT CERVICAL W/O MCC 15</li>
-</ul>
-<p>Which is the most expensive to treat overall?</p>
-<p>Looks like septicemia is still the overall most expensive</p>
-<p>The spinal fusion (code 460) in the outlier list is interesting because it is not there in the overall list. I don’t know what it is done for. Let me google and come back.</p>
-</div>
+                    <time itemprop="datePublished" datetime="2017-04-28T00:00:00Z">
 
-              
+                        April 28, 2017
+
+                    </time>
+
+
+                </div>
+
             </div>
-          </div>
-          <div id="post-footer" class="post-footer main-content-wrap">
-            
-              
-            
-            <div class="post-actions-wrap">
-  <nav>
-    <ul class="post-actions post-action-nav">
-      
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--disabled">
-          
-            <i class="fa fa-angle-left"></i>
-            <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-          </a>
-        </li>
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--disabled">
-          
-            <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-            <i class="fa fa-angle-right"></i>
-          </a>
-        </li>
-      
-    </ul>
-  </nav>
-  <ul class="post-actions post-action-share">
-    
-      <li class="post-action hide-lg hide-md hide-sm">
-        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-          <i class="fa fa-share-alt"></i>
-        </a>
-      </li>
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
-          <i class="fa fa-google-plus"></i>
-        </a>
-      </li>
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
-          <i class="fa fa-facebook-official"></i>
-        </a>
-      </li>
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
-          <i class="fa fa-twitter"></i>
-        </a>
-      </li>
-    
-    
-      <li class="post-action">
-        <a class="post-action-btn btn btn--default" href="#disqus_thread">
-          <i class="fa fa-comment-o"></i>
-        </a>
-      </li>
-    
-    <li class="post-action">
-      
-        <a class="post-action-btn btn btn--default" href="#">
-      
-        <i class="fa fa-list"></i>
-      </a>
-    </li>
-  </ul>
-</div>
+
+            <div class="post-content markdown" itemprop="articleBody">
+                <div class="main-content-wrap">
+                    <div id="about-the-dataset" class="section level4">
+                        <h4>About the dataset</h4>
+                        <p>The dataset is <a href="https://www.data.gov/health/">openly available</a>. It portrays the
+                            provider summary for the top 100 Diagnosis-Related Groups (DRG) for the year 2011 in the US.
+                        </p>
+                        <p>DRGs only capture diagnosis groups which encompass related diagnoses for ease of
+                            classification and coding. However, this causes loss of details of individual diagnoses.</p>
+                    </div>
+                    <div id="columns-in-the-dataset" class="section level4">
+                        <h4>Columns in the dataset</h4>
+                        <p>The dataset has the following columns:</p>
+                        <ul>
+                            <li>DRG Definition (diagnosis)<br/>
+                            </li>
+                            <li>Provider Id<br/>
+                            </li>
+                            <li>Provider Name<br/>
+                            </li>
+                            <li>Provider Street Address<br/>
+                            </li>
+                            <li>Provider City<br/>
+                            </li>
+                            <li>Provider State<br/>
+                            </li>
+                            <li>Provider Zip Code<br/>
+                            </li>
+                            <li>Hospital Referral Region Description</li>
+                            <li>Total Discharges<br/>
+                            </li>
+                            <li>Average Covered Charges<br/>
+                            </li>
+                            <li>Average Total Payments<br/>
+                            </li>
+                            <li>Average Medicare Payments</li>
+                        </ul>
+                        <p>Average Covered Charges differs with providers. This will be our column of interest. Let us
+                            take a look at its histogram:</p>
+                        <div class="figure">
+                            <img src="charge_hist.png" alt="Histogram of the Average Charge"/>
+                            <p class="caption">Histogram of the Average Charge</p>
+                        </div>
+                    </div>
+                    <div id="exploring-outliers" class="section level4">
+                        <h4>Exploring Outliers</h4>
+                        <p>The distribution is right-skewed as would be for most charges. Here are the top 5 charges</p>
+                        <div class="d3chart">
+
+                        </div>
+                        <table>
+                            <thead>
+                            <tr class="header">
+                                <th>Diagnosis</th>
+                                <th>State</th>
+                                <th>Charge</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="odd">
+                                <td>RESP SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS</td>
+                                <td>CA</td>
+                                <td>929118.9</td>
+                            </tr>
+                            <tr class="even">
+                                <td>RESP SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS</td>
+                                <td>CA</td>
+                                <td>918023.2</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS</td>
+                                <td>CA</td>
+                                <td>637377.7</td>
+                            </tr>
+                            <tr class="even">
+                                <td>SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS</td>
+                                <td>CA</td>
+                                <td>628730.4</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS</td>
+                                <td>PA</td>
+                                <td>613926.6</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p>It turns out that most 4 of them are from CA. This is understandable as CA is an expensive
+                            state.</p>
+                        <p>The “Ventilator support 96+ hours” in the diagnosis, unfortunately, does not differentiate
+                            between one week or one month.</p>
+                        <p>Septicemia and Respiratory System Diagnosis are expensive because they can be a complication
+                            of a number of diseases, prolonging hospital stay and increasing charges.</p>
+                        <p>What are the top 5 most expensive diagnoses?</p>
+                        <table style="width:85%;">
+                            <colgroup>
+                                <col width="61%"/>
+                                <col width="23%"/>
+                            </colgroup>
+                            <thead>
+                            <tr class="header">
+                                <th>Diagnosis</th>
+                                <th>Average Charge</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="odd">
+                                <td>SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS</td>
+                                <td>$163227.33</td>
+                            </tr>
+                            <tr class="even">
+                                <td>RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS</td>
+                                <td>$143428.05</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>INFECTIOUS &amp; PARASITIC DISEASES W O.R. PROCEDURE W MCC</td>
+                                <td>$139186.35</td>
+                            </tr>
+                            <tr class="even">
+                                <td>MAJOR SMALL &amp; LARGE BOWEL PROCEDURES W MCC</td>
+                                <td>$135330.94</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>PERC CARDIOVASC PROC W DRUG-ELUTING STENT W MCC OR 4+ VESSELS/STENTS</td>
+                                <td>$96348.81</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p>This mirrors the above results for septicemia and respiratory system diagnosis. The 3rd
+                            diagnosis is not very clear. It could encompass abdominal infections and operations. ‘MCC’
+                            here stands for ‘major complications’. Let us see the average difference in charges for
+                            these diseases ‘with complications’ and ‘without complications’.</p>
+                        <table>
+                            <thead>
+                            <tr class="header">
+                                <th>Diagnosis</th>
+                                <th>Average Charge</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="odd">
+                                <td>870 - SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS</td>
+                                <td>158949.5</td>
+                            </tr>
+                            <tr class="even">
+                                <td>872 - SEPTICEMIA OR SEVERE SEPSIS W/O MV 96+ HOURS W/O MCC</td>
+                                <td>27680.9</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p>871 - SEPTICEMIA OR SEVERE SEPSIS W/O MV 96+ HOURS W MCC 46028.75</p>
+                        <p>We can see that having a complication could increase charges upto six-fold. This illustrates
+                            how errors in coding cost a lot. If one has a hospital bill which seems unusual, such errors
+                            need to be looked at.</p>
+                        <p>Which are the providers with highest average charges?</p>
+                        <table>
+                            <thead>
+                            <tr class="header">
+                                <th>Hospital</th>
+                                <th>Average Charge (dollars)</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="odd">
+                                <td>UVA Health Sciences Center, Charlotesville, VA</td>
+                                <td>21922.00</td>
+                            </tr>
+                            <tr class="even">
+                                <td>Bayonne Hospital Center, Bayonne, NJ</td>
+                                <td>147441</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Doctors Medical Center, Modesto, CA</td>
+                                <td>144695</td>
+                            </tr>
+                            <tr class="even">
+                                <td>Stanford Hospital, Stanford, CA</td>
+                                <td>138818</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Northbay Medical Center, Fairfield, CA</td>
+                                <td>138504</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p>Three seem to be from California, which is understandable because of high expenses in CA.
+                            Let’s explore why the one from VA is expensive. VA ranks 29th among the states for average
+                            charges. This is strange. Why should one hospital from VA be so expensive?</p>
+                        <p>It turns out that there is only one entry for that hospital in the dataset and the diagnosis
+                            is “RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS”Let’s see how the charge for
+                            this diagnosis compares with others in VA</p>
+                        <p>The top 5 diagnoses for this outlier are:</p>
+                        <ul>
+                            <li>870 SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS 132</li>
+                            <li>329 MAJOR SMALL &amp; LARGE BOWEL PROCEDURES W MCC 117</li>
+                            <li>853 INFECTIOUS &amp; PARASITIC DISEASES W O.R. PROCEDURE W MCC 117</li>
+                            <li>207 RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS 96</li>
+                            <li>460 SPINAL FUSION EXCEPT CERVICAL W/O MCC 15</li>
+                        </ul>
+                        <p>Which is the most expensive to treat overall?</p>
+                        <p>Looks like septicemia is still the overall most expensive</p>
+                        <p>The spinal fusion (code 460) in the outlier list is interesting because it is not there in
+                            the overall list. I don’t know what it is done for. Let me google and come back.</p>
+                    </div>
 
 
-            
-              
+                </div>
+            </div>
+            <div id="post-footer" class="post-footer main-content-wrap">
+
+
+                <div class="post-actions-wrap">
+                    <nav>
+                        <ul class="post-actions post-action-nav">
+
+                            <li class="post-action">
+
+                                <a class="post-action-btn btn btn--disabled">
+
+                                    <i class="fa fa-angle-left"></i>
+                                    <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                                </a>
+                            </li>
+                            <li class="post-action">
+
+                                <a class="post-action-btn btn btn--disabled">
+
+                                    <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                    <ul class="post-actions post-action-share">
+
+                        <li class="post-action hide-lg hide-md hide-sm">
+                            <a class="post-action-btn btn btn--default btn-open-shareoptions"
+                               href="#btn-open-shareoptions">
+                                <i class="fa fa-share-alt"></i>
+                            </a>
+                        </li>
+                        <li class="post-action hide-xs">
+                            <a class="post-action-btn btn btn--default" target="new"
+                               href="https://plus.google.com/share?url=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </li>
+                        <li class="post-action hide-xs">
+                            <a class="post-action-btn btn btn--default" target="new"
+                               href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
+                                <i class="fa fa-facebook-official"></i>
+                            </a>
+                        </li>
+                        <li class="post-action hide-xs">
+                            <a class="post-action-btn btn btn--default" target="new"
+                               href="https://twitter.com/intent/tweet?text=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+
+
+                        <li class="post-action">
+                            <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                                <i class="fa fa-comment-o"></i>
+                            </a>
+                        </li>
+
+                        <li class="post-action">
+
+                            <a class="post-action-btn btn btn--default" href="#">
+
+                                <i class="fa fa-list"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
                 <div id="disqus_thread">
-  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-              
-            
-          </div>
+                    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered
+                        by Disqus.</a></noscript>
+                </div>
+
+
+            </div>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2017 Pranay Aryal. All Rights Reserved
   </span>
-</footer>
+        </footer>
 
-      </div>
-      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+    </div>
+    <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
         <div class="post-actions-wrap">
-  <nav>
-    <ul class="post-actions post-action-nav">
-      
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--disabled">
-          
-            <i class="fa fa-angle-left"></i>
-            <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-          </a>
-        </li>
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--disabled">
-          
-            <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-            <i class="fa fa-angle-right"></i>
-          </a>
-        </li>
-      
-    </ul>
-  </nav>
-  <ul class="post-actions post-action-share">
-    
-      <li class="post-action hide-lg hide-md hide-sm">
-        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-          <i class="fa fa-share-alt"></i>
-        </a>
-      </li>
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
-          <i class="fa fa-google-plus"></i>
-        </a>
-      </li>
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
-          <i class="fa fa-facebook-official"></i>
-        </a>
-      </li>
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
-          <i class="fa fa-twitter"></i>
-        </a>
-      </li>
-    
-    
-      <li class="post-action">
-        <a class="post-action-btn btn btn--default" href="#disqus_thread">
-          <i class="fa fa-comment-o"></i>
-        </a>
-      </li>
-    
-    <li class="post-action">
-      
-        <a class="post-action-btn btn btn--default" href="#">
-      
-        <i class="fa fa-list"></i>
-      </a>
-    </li>
-  </ul>
-</div>
+            <nav>
+                <ul class="post-actions post-action-nav">
+
+                    <li class="post-action">
+
+                        <a class="post-action-btn btn btn--disabled">
+
+                            <i class="fa fa-angle-left"></i>
+                            <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                        </a>
+                    </li>
+                    <li class="post-action">
+
+                        <a class="post-action-btn btn btn--disabled">
+
+                            <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+            <ul class="post-actions post-action-share">
+
+                <li class="post-action hide-lg hide-md hide-sm">
+                    <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+                        <i class="fa fa-share-alt"></i>
+                    </a>
+                </li>
+                <li class="post-action hide-xs">
+                    <a class="post-action-btn btn btn--default" target="new"
+                       href="https://plus.google.com/share?url=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                </li>
+                <li class="post-action hide-xs">
+                    <a class="post-action-btn btn btn--default" target="new"
+                       href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
+                        <i class="fa fa-facebook-official"></i>
+                    </a>
+                </li>
+                <li class="post-action hide-xs">
+                    <a class="post-action-btn btn btn--default" target="new"
+                       href="https://twitter.com/intent/tweet?text=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
 
 
-      </div>
-      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-  <ul class="share-options">
-    <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
-        <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
-      </a>
-    </li>
-    <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
-        <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
-      </a>
-    </li>
-    <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
-        <i class="fa fa-twitter"></i><span>Share on Twitter</span>
-      </a>
-    </li>
-  </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                        <i class="fa fa-comment-o"></i>
+                    </a>
+                </li>
+
+                <li class="post-action">
+
+                    <a class="post-action-btn btn btn--default" href="#">
+
+                        <i class="fa fa-list"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
     </div>
-    
-    <div id="about">
-  <div id="about-card">
-    <div id="about-btn-close">
-      <i class="fa fa-remove"></i>
+    <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+        <ul class="share-options">
+            <li class="share-option">
+                <a class="share-option-btn" target="new"
+                   href="https://plus.google.com/share?url=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
+                    <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+                </a>
+            </li>
+            <li class="share-option">
+                <a class="share-option-btn" target="new"
+                   href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
+                    <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+                </a>
+            </li>
+            <li class="share-option">
+                <a class="share-option-btn" target="new"
+                   href="https://twitter.com/intent/tweet?text=%2f2017%2f04%2fanalyzing-inpatient-data-from-the-hospital-charge-data-set%2f">
+                    <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+                </a>
+            </li>
+        </ul>
     </div>
-    
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/9b8b60d3f08e067472a19a38f8b2b058?s=110" alt="Author&#39;s picture" />
-    
-    <h4 id="about-card-name">Pranay Aryal</h4>
-    
-      <div id="about-card-bio">Hi I am a web developer who loves Data Science. I have a background in medicine</div>
-    
-    
-      <div id="about-card-job">
-        <i class="fa fa-briefcase"></i>
-        <br/>
-        Web Developer
-      </div>
-    
-    
-      <div id="about-card-location">
-        <i class="fa fa-map-marker"></i>
-        <br/>
-        Louisville, KY
-      </div>
-    
-  </div>
+    <div id="share-options-mask" class="share-options-mask"></div>
 </div>
 
-    <div id="algolia-search-modal" class="modal-container">
-  <div class="modal">
-    <div class="modal-header">
-      <span class="close-button"><i class="fa fa-close"></i></span>
-      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
-        <span class="searchby-algolia-text text-color-light text-small">by</span>
-        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
-      </a>
-      <i class="search-icon fa fa-search"></i>
-      <form id="algolia-search-form">
-        <input type="text" id="algolia-search-input" name="search"
-          class="form-control input--large search-input" placeholder="Search" />
-      </form>
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+
+        <img id="about-card-picture" src="//www.gravatar.com/avatar/9b8b60d3f08e067472a19a38f8b2b058?s=110"
+             alt="Author&#39;s picture"/>
+
+        <h4 id="about-card-name">Pranay Aryal</h4>
+
+        <div id="about-card-bio">Hi I am a web developer who loves Data Science. I have a background in medicine</div>
+
+
+        <div id="about-card-job">
+            <i class="fa fa-briefcase"></i>
+            <br/>
+            Web Developer
+        </div>
+
+
+        <div id="about-card-location">
+            <i class="fa fa-map-marker"></i>
+            <br/>
+            Louisville, KY
+        </div>
+
     </div>
-    <div class="modal-body">
-      <div class="no-result text-color-light text-center">no post found</div>
-      <div class="results">
-        
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="/2017/04/analyzing-inpatient-data-from-the-hospital-charge-data-set/">
-                <h3 class="media-heading">Analyzing Inpatient Data From the Hospital Charge Data Set</h3>
-              </a>
-              <span class="media-meta">
+</div>
+
+<div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-close"></i></span>
+            <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo"
+                     src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search"
+                       class="form-control input--large search-input" placeholder="Search"/>
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="results">
+
+
+                <div class="media">
+
+                    <div class="media-body">
+                        <a class="link-unstyled"
+                           href="/2017/04/analyzing-inpatient-data-from-the-hospital-charge-data-set/">
+                            <h3 class="media-heading">Analyzing Inpatient Data From the Hospital Charge Data Set</h3>
+                        </a>
+                        <span class="media-meta">
                 <span class="media-date text-small">
                   Apr 4, 2017
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">About the dataset The dataset is openly available. It portrays the provider summary for the top 100 Diagnosis-Related Groups (DRG) for the year 2011 in the US.
-DRGs only capture diagnosis groups which encompass related diagnoses for ease of classification and coding. However, this causes loss of details of individual diagnoses.
- Columns in the dataset The dataset has the following columns:
- DRG Definition (diagnosis)
- Provider Id
- Provider Name</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="/post/">
-                <h3 class="media-heading">Posts</h3>
-              </a>
-              <span class="media-meta">
+                        <div class="media-content hide-xs font-merryweather">About the dataset The dataset is openly
+                            available. It portrays the provider summary for the top 100 Diagnosis-Related Groups (DRG)
+                            for the year 2011 in the US.
+                            DRGs only capture diagnosis groups which encompass related diagnoses for ease of
+                            classification and coding. However, this causes loss of details of individual diagnoses.
+                            Columns in the dataset The dataset has the following columns:
+                            DRG Definition (diagnosis)
+                            Provider Id
+                            Provider Name
+                        </div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+
+                <div class="media">
+
+                    <div class="media-body">
+                        <a class="link-unstyled" href="/post/">
+                            <h3 class="media-heading">Posts</h3>
+                        </a>
+                        <span class="media-meta">
                 <span class="media-date text-small">
                   Apr 4, 2017
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+
             </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-      </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium"
+               data-message-zero="no post found"
+               data-message-one="1 post found"
+               data-message-other="{n} posts found">
+                2 posts found
+            </p>
+        </div>
     </div>
-    <div class="modal-footer">
-      <p class="results-count text-medium"
-         data-message-zero="no post found"
-         data-message-one="1 post found"
-         data-message-other="{n} posts found">
-         2 posts found
-      </p>
-    </div>
-  </div>
 </div>
-    
-  
-    
-    <div id="cover" style="background-image:url('/images/cover.jpg');"></div>
-  
 
 
-    
+<div id="cover" style="background-image:url('/images/cover.jpg');"></div>
+
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js"></script>
@@ -717,55 +766,122 @@ DRGs only capture diagnosis groups which encompass related diagnoses for ease of
 <script src="/js/script-wl33z0n6ocaypepiqrazthtivfrliqijej4rq8ek8gvrv1awftmgjuv8k4zc.min.js"></script>
 
 <script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight').each(function(i, block) {
-    var code = "";
-    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
-      code += "<span class=\"line\">" + line + "</span><br>";
+    $(document).ready(function () {
+        hljs.configure({classPrefix: '', useBR: false});
+        $('pre.code-highlight').each(function (i, block) {
+            var code = "";
+            hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function (line) {
+                code += "<span class=\"line\">" + line + "</span><br>";
+            });
+            if (code.length > 0) {
+                block.innerHTML = code;
+            }
+        });
+        $('pre > code').each(function (i, block) {
+            $(this).addClass('codeblock');
+            hljs.highlightBlock(block);
+        });
     });
-    if (code.length > 0) {
-      block.innerHTML = code;  
-    }
-  });
-  $('pre > code').each(function(i, block) {
-    $(this).addClass('codeblock');
-    hljs.highlightBlock(block);
-  });
-});
 </script>
 
-  
-    
-      <script>
-        var disqus_config = function () {
-          this.page.url = '\/2017\/04\/analyzing-inpatient-data-from-the-hospital-charge-data-set\/';
-          
-            this.page.identifier = '\/2017\/04\/analyzing-inpatient-data-from-the-hospital-charge-data-set\/'
-          
-        };
-        (function() {
-          
-          
-          if (window.location.hostname == "localhost") {
+
+<script>
+    var disqus_config = function () {
+        this.page.url = '\/2017\/04\/analyzing-inpatient-data-from-the-hospital-charge-data-set\/';
+
+        this.page.identifier = '\/2017\/04\/analyzing-inpatient-data-from-the-hospital-charge-data-set\/'
+
+    };
+    (function () {
+
+
+        if (window.location.hostname == "localhost") {
             return;
-          }
-          var d = document, s = d.createElement('script');
-          var disqus_shortname = 'hugo-tranquilpeak-theme';
-          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        }
+        var d = document, s = d.createElement('script');
+        var disqus_shortname = 'hugo-tranquilpeak-theme';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      </script>
-    
-  
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<script>
+    var margin = {top: 40, right: 20, bottom: 30, left: 40},
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+    var formatPercent = d3.format(".0%");
+
+    var x = d3.scale.ordinal()
+        .rangeRoundBands([0, width], .1);
+
+    var y = d3.scale.linear()
+        .range([height, 0]);
+
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom");
+
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .tickFormat(formatPercent);
+
+    var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            return "<strong>Frequency:</strong> <span style='color:red'>" + d.frequency + "</span>";
+        })
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    svg.call(tip);
+
+    d3.tsv("data.tsv", type, function(error, data) {
+        x.domain(data.map(function(d) { return d.letter; }));
+        y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("Frequency");
+
+        svg.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", function(d) { return x(d.letter); })
+            .attr("width", x.rangeBand())
+            .attr("y", function(d) { return y(d.frequency); })
+            .attr("height", function(d) { return height - y(d.frequency); })
+            .on('mouseover', tip.show)
+            .on('mouseout', tip.hide)
+
+    });
+
+    function type(d) {
+        d.frequency = +d.frequency;
+        return d;
+    }
+</script>
 
 
-
-
-
-    
-  </body>
+</body>
 </html>
 
